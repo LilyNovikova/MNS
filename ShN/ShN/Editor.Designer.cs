@@ -1,6 +1,6 @@
-﻿using Frqvs.DataModels;
+﻿using ShN.DataModels;
 
-namespace Frqvs
+namespace ShN
 {
     partial class Editor
     {
@@ -52,16 +52,16 @@ namespace Frqvs
             // 
             this.m_redlst.FormattingEnabled = true;
             this.m_redlst.Items.AddRange(new object[] {
-            Frqvs.DataModels.ElementType.Resistor,
-            Frqvs.DataModels.ElementType.Capacitor,
-            Frqvs.DataModels.ElementType.Inductor});
+            ElementType.Resistor,
+            ElementType.Capacitor,
+            ElementType.Inductor});
             this.m_redlst.Location = new System.Drawing.Point(9, 46);
             this.m_redlst.Margin = new System.Windows.Forms.Padding(2);
             this.m_redlst.Name = "m_redlst";
             this.m_redlst.Size = new System.Drawing.Size(122, 199);
             this.m_redlst.TabIndex = 0;
             this.m_redlst.DoubleClick += new System.EventHandler(this.m_redlst_DoubleClick);
-            this.m_redlst.SelectedItem = Frqvs.DataModels.ElementType.Resistor;
+            this.m_redlst.SelectedItem = ElementType.Resistor;
             // 
             // IDC_NP1_STATIC
             // 

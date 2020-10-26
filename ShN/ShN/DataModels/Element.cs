@@ -1,4 +1,4 @@
-﻿namespace Frqvs.DataModels
+﻿namespace ShN.DataModels
 {
     public class Element : Model
     {

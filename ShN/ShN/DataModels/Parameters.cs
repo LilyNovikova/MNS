@@ -1,9 +1,15 @@
 ﻿using System.Collections.Generic;
 
-namespace Frqvs.DataModels
+namespace ShN.DataModels
 {
     public class Parameters : Model
     {
+        public const int M = 100;
+        public const int MR = 50;
+        public const int MC = 50;
+        public const int ML = 20;
+        public const int MF = 20;
+
         public int NumNodes { get; set; }
         public int NumResistors { get; set; }
         public int NumInductors { get; set; }
@@ -22,5 +28,9 @@ namespace Frqvs.DataModels
         public List<Element> Resistors { get; set; }
         public List<Element> Inductors { get; set; }
         public List<Element> Capacitors { get; set; }
+
+        public InOut InOut { get; set; }
+
+        public List<double> F { get; set; }
     }
 }
