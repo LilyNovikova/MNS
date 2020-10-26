@@ -1,9 +1,9 @@
-﻿using Frqvs.DataModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using ShN.DataModels;
 
-namespace Frqvs
+namespace ShN
 {
     public partial class Size : Form
     {

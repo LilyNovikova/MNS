@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-using Frqvs.DataModels;
+using ShN.DataModels;
 
-namespace Frqvs
+namespace ShN
 {
     public partial class Editor : Form
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Frqvs.DataModels
+namespace ShN.DataModels
 {
     public class Model
     {

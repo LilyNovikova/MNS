@@ -1,4 +1,4 @@
-﻿namespace Frqvs
+﻿namespace ShN
 {
     partial class Size
     {
