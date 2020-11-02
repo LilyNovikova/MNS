@@ -21,17 +21,7 @@ namespace ShN
         {
             if (parameters != null)
             {
-                using (var saveFileDialog1 = new SaveFileDialog())
-                {
-                    saveFileDialog1.Filter = FileFilter;
-                    saveFileDialog1.FilterIndex = 2;
-                    saveFileDialog1.RestoreDirectory = true;
-
-                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                    {
-                        File.WriteAllText(saveFileDialog1.FileName, JsonConvert.SerializeObject(parameters));
-                    }
-                }
+                SaveToFile();
             }
 
             Close();
@@ -108,6 +98,26 @@ namespace ShN
                 function.ShowDialog(this);
                 parameters.F = function.F;
                 paramsLbl.Text = parameters.ToString();
+            }
+        }
+
+        private void ID_SAVE_PARAMS_Click(object sender, EventArgs e)
+        {
+            SaveToFile();
+        }
+
+        private void SaveToFile()
+        {
+            using (var saveFileDialog1 = new SaveFileDialog())
+            {
+                saveFileDialog1.Filter = FileFilter;
+                saveFileDialog1.FilterIndex = 2;
+                saveFileDialog1.RestoreDirectory = true;
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    File.WriteAllText(saveFileDialog1.FileName, JsonConvert.SerializeObject(parameters));
+                }
             }
         }
     }

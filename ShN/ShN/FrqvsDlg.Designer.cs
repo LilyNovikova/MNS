@@ -33,6 +33,7 @@
             this.ID_DESC = new System.Windows.Forms.ToolStripMenuItem();
             this.ID_CONS = new System.Windows.Forms.ToolStripMenuItem();
             this.ID_FILE = new System.Windows.Forms.ToolStripMenuItem();
+            this.ID_SAVE_PARAMS = new System.Windows.Forms.ToolStripMenuItem();
             this.ID_RED = new System.Windows.Forms.ToolStripMenuItem();
             this.ID_DIR = new System.Windows.Forms.ToolStripMenuItem();
             this.ID_F = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,7 +77,8 @@
             // 
             this.ID_DESC.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ID_CONS,
-            this.ID_FILE});
+            this.ID_FILE,
+            this.ID_SAVE_PARAMS});
             this.ID_DESC.Name = "ID_DESC";
             this.ID_DESC.Size = new System.Drawing.Size(181, 22);
             this.ID_DESC.Text = "Описание";
@@ -84,16 +86,23 @@
             // ID_CONS
             // 
             this.ID_CONS.Name = "ID_CONS";
-            this.ID_CONS.Size = new System.Drawing.Size(177, 22);
+            this.ID_CONS.Size = new System.Drawing.Size(189, 22);
             this.ID_CONS.Text = "Ввод с клавиатуры";
             this.ID_CONS.Click += new System.EventHandler(this.ID_CONS_Click);
             // 
             // ID_FILE
             // 
             this.ID_FILE.Name = "ID_FILE";
-            this.ID_FILE.Size = new System.Drawing.Size(177, 22);
+            this.ID_FILE.Size = new System.Drawing.Size(189, 22);
             this.ID_FILE.Text = "Ввод из файла";
             this.ID_FILE.Click += new System.EventHandler(this.ID_FILE_Click);
+            // 
+            // ID_SAVE_PARAMS
+            // 
+            this.ID_SAVE_PARAMS.Name = "ID_SAVE_PARAMS";
+            this.ID_SAVE_PARAMS.Size = new System.Drawing.Size(189, 22);
+            this.ID_SAVE_PARAMS.Text = "Сохранить описание";
+            this.ID_SAVE_PARAMS.Click += new System.EventHandler(this.ID_SAVE_PARAMS_Click);
             // 
             // ID_RED
             // 
@@ -214,6 +223,7 @@
         private System.Windows.Forms.ToolStripMenuItem ID_EXIT;
         private System.Windows.Forms.Label paramsLbl;
         private System.Windows.Forms.OpenFileDialog selectParametersFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem ID_SAVE_PARAMS;
     }
 }
 
