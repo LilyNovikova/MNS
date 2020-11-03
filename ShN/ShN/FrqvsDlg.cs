@@ -120,5 +120,13 @@ namespace ShN
                 }
             }
         }
+
+        private void ID_INTERNET_Click(object sender, EventArgs e)
+        {
+            using (var browser = new Browser())
+            {
+                browser.ShowDialog(this);
+            }
+        }
     }
 }

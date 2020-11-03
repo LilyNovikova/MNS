@@ -97,6 +97,9 @@
     <Compile Include="Size.Designer.cs">
       <DependentUpon>Size.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Browser.resx">
+      <DependentUpon>Browser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor.resx">
       <DependentUpon>Editor.cs</DependentUpon>
     </EmbeddedResource>

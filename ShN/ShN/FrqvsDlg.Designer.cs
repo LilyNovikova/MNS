@@ -166,6 +166,7 @@
             this.ID_INTERNET.Name = "ID_INTERNET";
             this.ID_INTERNET.Size = new System.Drawing.Size(181, 22);
             this.ID_INTERNET.Text = "Интернет";
+            this.ID_INTERNET.Click += new System.EventHandler(this.ID_INTERNET_Click);
             // 
             // ID_EXIT
             // 
