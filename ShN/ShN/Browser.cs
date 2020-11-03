@@ -12,16 +12,23 @@ namespace ShN
 {
     public partial class Browser : Form
     {
+        private const string Local = "http://localhost/MF/";
+        private const string ReplaceLocal = "D:\\html\\";
+
         public Browser()
         {
             InitializeComponent();
+            expectionLbl.Visible = false;
         }
 
         private void IDC_INP_Click(object sender, EventArgs e)
         {
-            String str = IDC_COMBO.Text;
+            var str = IDC_COMBO.Text;
+            var address = str.Replace(Local, ReplaceLocal);
             IDC_COMBO.Items.Add(str);
-            IDC_EXPLORER.Navigate(str);
+            IDC_EXPLORER.Navigate(address);
+            IDC_PROGRESS.Visible = true;
+            expectionLbl.Visible = false;
         }
 
         private void IDC_EXPLORER_Navigating(object sender, WebBrowserNavigatingEventArgs e)
@@ -39,8 +46,21 @@ namespace ShN
 
         private void IDC_EXPLORER_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
         {
-            if (e.MaximumProgress != 0)
-                IDC_PROGRESS.Value = (int)(e.CurrentProgress * 100 / e.MaximumProgress);
+            try
+            {
+                if (e.MaximumProgress != 0)
+                {
+                    IDC_PROGRESS.Value = (int)(e.CurrentProgress * 100 / e.MaximumProgress);
+                }
+            }
+            catch (ArgumentOutOfRangeException exception)
+            {
+                IDC_PROGRESS.Visible = false;
+                expectionLbl.Visible = true;
+                expectionLbl.Text =
+                    $@"Invalid progress values. Max: {e.MaximumProgress}, current: {e.CurrentProgress}";
+            }
+
         }
 
         private void IDC_FORWARD_Click(object sender, EventArgs e)

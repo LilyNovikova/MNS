@@ -35,6 +35,7 @@
             this.IDC_INP = new System.Windows.Forms.Button();
             this.IDC_BACK = new System.Windows.Forms.Button();
             this.IDC_FORWARD = new System.Windows.Forms.Button();
+            this.expectionLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // IDC_COMBO
@@ -47,27 +48,29 @@
             "http://yandex.ru",
             "http://mail.ru",
             ""});
-            this.IDC_COMBO.Location = new System.Drawing.Point(107, 33);
+            this.IDC_COMBO.Location = new System.Drawing.Point(80, 27);
+            this.IDC_COMBO.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.IDC_COMBO.Name = "IDC_COMBO";
-            this.IDC_COMBO.Size = new System.Drawing.Size(239, 24);
+            this.IDC_COMBO.Size = new System.Drawing.Size(180, 21);
             this.IDC_COMBO.TabIndex = 0;
             this.IDC_COMBO.Text = "http://localhost/MF/beg.html";
-
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 39);
+            this.label1.Location = new System.Drawing.Point(27, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 17);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Адрес";
             // 
             // IDC_STOP
             // 
-            this.IDC_STOP.Location = new System.Drawing.Point(819, 39);
+            this.IDC_STOP.Location = new System.Drawing.Point(614, 32);
+            this.IDC_STOP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.IDC_STOP.Name = "IDC_STOP";
-            this.IDC_STOP.Size = new System.Drawing.Size(93, 23);
+            this.IDC_STOP.Size = new System.Drawing.Size(70, 19);
             this.IDC_STOP.TabIndex = 5;
             this.IDC_STOP.Text = "Стоп";
             this.IDC_STOP.UseVisualStyleBackColor = true;
@@ -75,16 +78,19 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(262, 438);
+            this.progressBar1.Location = new System.Drawing.Point(196, 356);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(186, 23);
+            this.progressBar1.Size = new System.Drawing.Size(140, 19);
             this.progressBar1.TabIndex = 6;
             // 
             // IDC_EXIT
             // 
-            this.IDC_EXIT.Location = new System.Drawing.Point(620, 564);
+            this.IDC_EXIT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.IDC_EXIT.Location = new System.Drawing.Point(465, 458);
+            this.IDC_EXIT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.IDC_EXIT.Name = "IDC_EXIT";
-            this.IDC_EXIT.Size = new System.Drawing.Size(102, 23);
+            this.IDC_EXIT.Size = new System.Drawing.Size(76, 19);
             this.IDC_EXIT.TabIndex = 7;
             this.IDC_EXIT.Text = "Закрыть";
             this.IDC_EXIT.UseVisualStyleBackColor = true;
@@ -92,10 +98,14 @@
             // 
             // IDC_EXPLORER
             // 
-            this.IDC_EXPLORER.Location = new System.Drawing.Point(39, 78);
-            this.IDC_EXPLORER.MinimumSize = new System.Drawing.Size(20, 20);
+            this.IDC_EXPLORER.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.IDC_EXPLORER.Location = new System.Drawing.Point(29, 63);
+            this.IDC_EXPLORER.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IDC_EXPLORER.MinimumSize = new System.Drawing.Size(15, 16);
             this.IDC_EXPLORER.Name = "IDC_EXPLORER";
-            this.IDC_EXPLORER.Size = new System.Drawing.Size(873, 469);
+            this.IDC_EXPLORER.Size = new System.Drawing.Size(655, 381);
             this.IDC_EXPLORER.TabIndex = 9;
             this.IDC_EXPLORER.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.IDC_EXPLORER_Navigated);
             this.IDC_EXPLORER.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.IDC_EXPLORER_Navigating);
@@ -103,16 +113,20 @@
             // 
             // IDC_PROGRESS
             // 
-            this.IDC_PROGRESS.Location = new System.Drawing.Point(271, 564);
+            this.IDC_PROGRESS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.IDC_PROGRESS.Location = new System.Drawing.Point(203, 458);
+            this.IDC_PROGRESS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.IDC_PROGRESS.Name = "IDC_PROGRESS";
-            this.IDC_PROGRESS.Size = new System.Drawing.Size(203, 23);
+            this.IDC_PROGRESS.Size = new System.Drawing.Size(152, 19);
             this.IDC_PROGRESS.TabIndex = 10;
             // 
             // IDC_INP
             // 
-            this.IDC_INP.Location = new System.Drawing.Point(389, 38);
+            this.IDC_INP.Location = new System.Drawing.Point(292, 31);
+            this.IDC_INP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.IDC_INP.Name = "IDC_INP";
-            this.IDC_INP.Size = new System.Drawing.Size(100, 23);
+            this.IDC_INP.Size = new System.Drawing.Size(75, 19);
             this.IDC_INP.TabIndex = 11;
             this.IDC_INP.Text = "Ввод";
             this.IDC_INP.UseVisualStyleBackColor = true;
@@ -120,9 +134,10 @@
             // 
             // IDC_BACK
             // 
-            this.IDC_BACK.Location = new System.Drawing.Point(546, 39);
+            this.IDC_BACK.Location = new System.Drawing.Point(410, 32);
+            this.IDC_BACK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.IDC_BACK.Name = "IDC_BACK";
-            this.IDC_BACK.Size = new System.Drawing.Size(75, 23);
+            this.IDC_BACK.Size = new System.Drawing.Size(56, 19);
             this.IDC_BACK.TabIndex = 12;
             this.IDC_BACK.Text = "Назад";
             this.IDC_BACK.UseVisualStyleBackColor = true;
@@ -130,19 +145,32 @@
             // 
             // IDC_FORWARD
             // 
-            this.IDC_FORWARD.Location = new System.Drawing.Point(688, 39);
+            this.IDC_FORWARD.Location = new System.Drawing.Point(516, 32);
+            this.IDC_FORWARD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.IDC_FORWARD.Name = "IDC_FORWARD";
-            this.IDC_FORWARD.Size = new System.Drawing.Size(75, 23);
+            this.IDC_FORWARD.Size = new System.Drawing.Size(56, 19);
             this.IDC_FORWARD.TabIndex = 13;
             this.IDC_FORWARD.Text = "Вперед";
             this.IDC_FORWARD.UseVisualStyleBackColor = true;
             this.IDC_FORWARD.Click += new System.EventHandler(this.IDC_FORWARD_Click);
             // 
-            // INT
+            // expectionLbl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.expectionLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.expectionLbl.AutoSize = true;
+            this.expectionLbl.Location = new System.Drawing.Point(26, 461);
+            this.expectionLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.expectionLbl.Name = "expectionLbl";
+            this.expectionLbl.Size = new System.Drawing.Size(38, 13);
+            this.expectionLbl.TabIndex = 14;
+            this.expectionLbl.Text = "Адрес";
+            // 
+            // Browser
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 599);
+            this.ClientSize = new System.Drawing.Size(704, 487);
+            this.Controls.Add(this.expectionLbl);
             this.Controls.Add(this.IDC_FORWARD);
             this.Controls.Add(this.IDC_BACK);
             this.Controls.Add(this.IDC_INP);
@@ -153,7 +181,8 @@
             this.Controls.Add(this.IDC_STOP);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.IDC_COMBO);
-            this.Name = "INT";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "Browser";
             this.Text = "Интернет";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -172,5 +201,6 @@
         private System.Windows.Forms.Button IDC_INP;
         private System.Windows.Forms.Button IDC_BACK;
         private System.Windows.Forms.Button IDC_FORWARD;
+        private System.Windows.Forms.Label expectionLbl;
     }
 }
