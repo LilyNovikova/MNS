@@ -1,19 +1,13 @@
-﻿using System;
+﻿using ShN.DataModels;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ShN.DataModels;
 
 namespace ShN
 {
     public partial class Function : Form
     {
-        private int m_f;
+        private int mf;
         private Parameters parameters;
         public List<double> F { get; set; }
         public Function(Parameters parameters)
@@ -25,7 +19,7 @@ namespace ShN
         private void IDC_F_CheckedChanged(object sender, EventArgs e)
         {
             IDC_F1.Focus();
-            m_f = 0;
+            mf = 0;
             IDC_T1.Text = "Значение частоты (кгц)";
             IDC_T2.Text = "";
             IDC_T3.Text = "";
@@ -34,7 +28,7 @@ namespace ShN
         private void DF_CheckedChanged(object sender, EventArgs e)
         {
             IDC_F1.Focus();
-            m_f = 1;
+            mf = 1;
             IDC_T1.Text = "Минимальная частота Fmin(кгц)";
             IDC_T2.Text = "Максимальная частота Fmax(кгц)";
             IDC_T3.Text = "Шаг изменения частоты dF(кгц)";
@@ -43,7 +37,7 @@ namespace ShN
         private void KF_CheckedChanged(object sender, EventArgs e)
         {
             IDC_F1.Focus();
-            m_f = 2;
+            mf = 2;
             IDC_T1.Text = "Минимальная частота Fmin(кгц)";
             IDC_T2.Text = "Максимальная частота Fmax(кгц)";
             IDC_T3.Text = "Отношение соседних частот K";
@@ -53,7 +47,7 @@ namespace ShN
         {
             F = new List<double>();
             var nf = 0;
-            switch (m_f)
+            switch (mf)
             {
                 case 0:
                     F.Add(double.Parse(IDC_F1.Text));

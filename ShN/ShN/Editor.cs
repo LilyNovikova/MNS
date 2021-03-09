@@ -1,7 +1,7 @@
-﻿using System;
+﻿using ShN.DataModels;
+using System;
 using System.Linq;
 using System.Windows.Forms;
-using ShN.DataModels;
 
 namespace ShN
 {
@@ -48,7 +48,7 @@ namespace ShN
         {
             var elementType = (ElementType)m_redlst.SelectedItem;
             var index = Int32.Parse(m_n.Text);
-            Element element = null;
+            SimpleElement element = null;
             switch (elementType)
             {
                 case ElementType.Resistor:
@@ -79,7 +79,7 @@ namespace ShN
         {
             var elementType = (ElementType)m_redlst.SelectedItem;
             var index = Int32.Parse(m_n.Text);
-            var element = new Element()
+            var element = new SimpleElement()
             {
                 PlusNode = Int32.Parse(m_np1.Text),
                 MinusNode = Int32.Parse(m_nm1.Text),

@@ -160,6 +160,7 @@
             this.ID_CALC.Name = "ID_CALC";
             this.ID_CALC.Size = new System.Drawing.Size(181, 22);
             this.ID_CALC.Text = "Расчёт";
+            this.ID_CALC.Click += new System.EventHandler(this.ID_CALC_Click);
             // 
             // ID_INTERNET
             // 

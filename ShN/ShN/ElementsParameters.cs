@@ -1,16 +1,16 @@
-﻿using System;
+﻿using ShN.DataModels;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ShN.DataModels;
 
 namespace ShN
 {
     public partial class ElementsParameters : Form
     {
         private Parameters parameters;
-        public List<Element> Resistors { get; set; } = new List<Element>();
-        public List<Element> Inductors { get; set; } = new List<Element>();
-        public List<Element> Capacitors { get; set; } = new List<Element>();
+        public List<SimpleElement> Resistors { get; set; } = new List<SimpleElement>();
+        public List<SimpleElement> Inductors { get; set; } = new List<SimpleElement>();
+        public List<SimpleElement> Capacitors { get; set; } = new List<SimpleElement>();
         public ElementsParameters(Parameters parameters)
         {
             this.parameters = parameters;
@@ -19,7 +19,7 @@ namespace ShN
 
         private void IDC_NEXTR_BUTTON_Click(object sender, EventArgs e)
         {
-            var currentId = Int32.Parse(m_nextr.Text);
+            var currentId = int.Parse(m_nextr.Text);
             if (currentId <= parameters.NumResistors)
             {
                 Resistors.Add(ReadElementData(ElementType.Resistor, parameters.NumResistors, Resistors.Count));
@@ -50,17 +50,17 @@ namespace ShN
             }
         }
 
-        private Element ReadElementData(ElementType type, int numberOfElements, int currentId)
+        private SimpleElement ReadElementData(ElementType type, int numberOfElements, int currentId)
         {
-            var element = new Element
+            var element = new SimpleElement
             {
                 Id = currentId + 1,
-                PlusNode = Int32.Parse(m_npr.Text),
-                MinusNode = Int32.Parse(m_nmr.Text),
+                PlusNode = int.Parse(m_npr.Text),
+                MinusNode = int.Parse(m_nmr.Text),
                 Z = double.Parse(m_zr.Text),
                 Type = type
             };
-            m_nextr.Text = (Int32.Parse(m_nextr.Text) + 1).ToString();
+            m_nextr.Text = (int.Parse(m_nextr.Text) + 1).ToString();
             m_npr.Text = "0";
             m_nmr.Text = "0";
             m_zr.Text = "0";

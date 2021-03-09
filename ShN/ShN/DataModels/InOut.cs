@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ShN.DataModels
-{ public class InOut
+﻿namespace ShN.DataModels
+{
+    public class InOut
     {
-        public int OnePlus { get; set; }
-        public int OneMinus { get; set; }
-        public int KPlus { get; set; }
-        public int KMinus { get; set; }
+        public int LPlus { get; set; }//lp
+        public int LMinus { get; set; }//lm
+        public int KPlus { get; set; }//kp
+        public int KMinus { get; set; }//km
     }
 }

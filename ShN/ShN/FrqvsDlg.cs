@@ -1,9 +1,8 @@
-﻿using System;
-using System.IO;
-using System.Text;
-using System.Windows.Forms;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using ShN.DataModels;
+using System;
+using System.IO;
+using System.Windows.Forms;
 
 namespace ShN
 {
@@ -126,6 +125,14 @@ namespace ShN
             using (var browser = new Browser())
             {
                 browser.ShowDialog(this);
+            }
+        }
+
+        private void ID_CALC_Click(object sender, EventArgs e)
+        {
+            using (var processing = new ProcessingResults(parameters))
+            {
+                processing.ShowDialog(this);
             }
         }
     }
