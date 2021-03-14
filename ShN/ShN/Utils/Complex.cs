@@ -127,8 +127,8 @@ namespace ShN.Utils
         }
 
         public override string ToString()
-        {
-            return $"{Real}+{Imag}i";
+        {            
+            return Imag == 0 ? Real.ToString() : $"{Real}+{Imag}i";
         }
 
         public Complex Copy()

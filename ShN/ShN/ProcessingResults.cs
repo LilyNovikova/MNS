@@ -19,18 +19,20 @@ namespace ShN
             InitializeComponent();
             Calculate();
             resultsLbl.Text = CreateText();
+            File.WriteAllText("d:\\out222.txt", CreateText());
         }
 
         private void St()
         {
+           // LogW($"d:\\w2-1_{DateTime.Now.ToString("yyyyMMdd_hhmmss")}.txt");
+
             var cn = new Complex(0, 0);
 
             for (var k = parameters.N; k >= 3; k--)
             {
                 var l = k;
                 var g = 0.001;
-                var w = parameters.W[l, k];
-                while (w.Abs < g)
+                while (parameters.W[l, k].Abs <= g)
                 {
                     l--;
                     if (l == 2)
@@ -38,7 +40,6 @@ namespace ShN
                         l = k;
                         g *= 0.1;
                     }
-                    w = parameters.W[l, k];
                 }
                 if (l != k)
                 {
@@ -63,6 +64,8 @@ namespace ShN
                     }
                 }
             }
+
+           // LogW($"d:\\w2-2_{DateTime.Now.ToString("yyyyMMdd_hhmmss")}.txt");
         }
 
         private void Sf1(int kf)
@@ -78,7 +81,6 @@ namespace ShN
             parameters.Rom[kf] = ro.Abs;
             parameters.Roa[kf] = ro.Arg * 180.0f / Math.PI;
         }
-
 
         private void Gauss()
         {
@@ -105,7 +107,7 @@ namespace ShN
                         }
                     }
                 }
-                var d = 1.0 / parameters.W[k, k];
+                var d = 1.0 / parameters.W[k, k];//
                 for (var i = k + 1; i <= parameters.N; i++)
                 {
                     if (parameters.W[i, k] == cn) continue;
@@ -123,7 +125,7 @@ namespace ShN
                     }
                 }
             }
-            parameters.W[0, parameters.N] = -parameters.W[parameters.N, 0] / parameters.W[parameters.N, parameters.N];
+            parameters.W[0, parameters.N] = -parameters.W[parameters.N, 0] / parameters.W[parameters.N, parameters.N];//
             for (var i = parameters.N - 1; i >= 1; i--)
             {
                 var t = parameters.W[i, 0];
@@ -131,8 +133,28 @@ namespace ShN
                 {
                     t += parameters.W[i, j] * parameters.W[0, j];
                 }
-                parameters.W[0, i] = -t / parameters.W[i, i];
+                parameters.W[0, i] = -t / parameters.W[i, i];//
             }
+
+           // LogW($"d:\\w2-2gauss_{DateTime.Now.ToString("yyyyMMdd_hhmmss")}.txt");
+        }
+
+        private void LogW(string file)
+        {
+            var txtW = string.Empty;
+            for (var i = 0; i <= Parameters.M; i++)
+            {
+                for (var j = 0; j <= Parameters.M; j++)
+                {
+                    var value = parameters.W[i, j].ToString();
+                    txtW += value + "          ".Substring(0, value.Length < 10 ? 10 - value.Length : 1);
+                }
+                txtW += Environment.NewLine;
+            }
+            var sb = new StringBuilder();
+            sb.AppendLine("\n\nW2");
+            sb.AppendLine(txtW);
+            File.WriteAllText(file, sb.ToString());
         }
 
         private void Sf2(int kf)
@@ -156,11 +178,11 @@ namespace ShN
             sb.AppendLine("Результаты моделирования");
             if ((parameters.InOut.LPlus == 1) && (parameters.InOut.LMinus == 0) && (parameters.InOut.KPlus == 2) && (parameters.InOut.KMinus == 0))
             {
-                sb.AppendLine("f кГц       kum 	      kua 	    rim      ria       rom 	    roa");
+                sb.AppendLine("      f кГц          kum       kua               rim            ria             rom          roa");
                 for (var kf = 0; kf < parameters.F.Count; kf++)
                 {
-                    sb.AppendLine(string.Format("{0,10:F2}{1,12:E2}{2,10:F2}" +
-                                "{3,12:E2}{4,10:F2}{5,12:E2}{6,10:F2}",
+                    sb.AppendLine(string.Format("{0,10:F3}{1,12:F3}{2,10:F3}" +
+                                "{3,12:F3}{4,10:F3}{5,12:F3}{6,10:F3}",
                                   parameters.F[kf], parameters.Kum[kf], parameters.Kua[kf], parameters.Rim[kf],
                                   parameters.Ria[kf], parameters.Rom[kf], parameters.Roa[kf]));
                 }
@@ -168,10 +190,10 @@ namespace ShN
 
             else
             {
-                sb.AppendLine("f кГц  	   kum 	     kua 	 rim 	   ria");
+                sb.AppendLine("     f кГц         kum 	     kua 	 rim       ria");
                 for (int kf = 0; kf < parameters.F.Count; kf++)
                 {
-                    sb.AppendLine(string.Format("{0,10:F2}{1,12:E2}{2,10:F2}{3,12:E2}{4,10:F2}",
+                    sb.AppendLine(string.Format("{0,10:F3}{1,12:F3}{2,10:F3}{3,12:F3}{4,10:F3}",
                             parameters.F[kf], parameters.Kum[kf], parameters.Kua[kf], parameters.Rim[kf], parameters.Ria[kf]));
                 }
             }
@@ -209,7 +231,7 @@ namespace ShN
 
                 foreach (var capacitor in parameters.Capacitors)
                 {
-                    sb.AppendLine(string.Format("R{0:D}{1,10:D}{2,10:D}{3,10:F}",
+                    sb.AppendLine(string.Format("C{0:D}{1,10:D}{2,10:D}{3,10:F}",
                         capacitor.Id, capacitor.PlusNode, capacitor.MinusNode, capacitor.Z));
                 }
             }
@@ -222,7 +244,7 @@ namespace ShN
 
                 foreach (var inductor in parameters.Inductors)
                 {
-                    sb.AppendLine(string.Format("R{0:D}{1,10:D}{2,10:D}{3,10:F}",
+                    sb.AppendLine(string.Format("L{0:D}{1,10:D}{2,10:D}{3,10:F}",
                         inductor.Id, inductor.PlusNode, inductor.MinusNode, inductor.Z));
                 }
             }
@@ -230,7 +252,66 @@ namespace ShN
             return sb;
         }
 
-        private void FormRLC(List<SimpleElement> elements)
+        private void FormRLC(List<SimpleElement> elements1)
+        {
+            if (elements1 != null)
+            {
+                var type = elements1.First().Type;
+                var elements = new List<SimpleElement>() { new SimpleElement() }.Concat(elements1).ToList();
+                var nd = elements1.Count;
+                var in_d = elements.Select(el => el.GetNodes()).ToArray();
+                var z_d = elements.Select(el => el.Z).ToArray();
+                
+
+                if (type != ElementType.Inductor)
+                {
+                    for (var kd = 1; kd <= nd; kd++)
+                    {
+                        for (var l = 0; l <= 1; l++)
+                        {
+                            var i = in_d[kd][l];
+                            if (i == 0) continue;
+                            for (var m = 0; m <= 1; m++)
+                            {
+                                var j = in_d[kd][m];
+                                if (j == 0) continue;
+                                var g = (1 - 2 * l) * (1 - 2 * m);
+                                switch (type)
+                                {
+                                    case ElementType.Resistor: 
+                                        parameters.A[i, j] += g / z_d[kd]; 
+                                        break;
+                                    case ElementType.Capacitor: 
+                                        parameters.B[i, j] += g * z_d[kd]; 
+                                        break;
+                                    default: throw new ArgumentException($"Unexpected element type '{type}'");
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for (int kd = 1; kd <= nd; kd++)
+                    {
+                        var i = parameters.N + kd;
+                        parameters.B[i, i] = z_d[kd];
+                        for (var m = 0; m <= 1; m++)
+                        {
+                            var j = in_d[kd][m];
+                            if (j == 0) continue;
+                            var g = 1 - 2 * m;
+                            parameters.A[i, j] -= g;
+                            parameters.A[j, i] += g;
+                        }
+                    }
+                    parameters.N += nd;
+                }
+            }
+        }
+
+
+        private void FormRLC1(List<SimpleElement> elements)
         {
             if (elements != null)
             {
@@ -460,16 +541,37 @@ namespace ShN
 
         private void FormW()
         {
-            for (var i = 1; i <= parameters.N; i++)
+            //var txtW = string.Empty;
+            //var txtA = string.Empty;
+            //var txtB = string.Empty;
+            for (var i = 0; i <= Parameters.M; i++)
             {
-                for (var j = 1; j <= parameters.N; j++)
+                for (var j = 0; j <= Parameters.M; j++)
                 {
                     var t = parameters.B[i, j];
                     if (t != 0) t *= parameters.Om;
                     var a = parameters.A[i, j];
                     parameters.W[i, j] = new Complex(a, t);
+                    //var value = parameters.W[i, j].ToString();
+                    //txtW += value + "          ".Substring(0, value.Length < 10 ? 10 - value.Length : 1);
+                    //var valueA = a.ToString();
+                    //txtA += valueA + "          ".Substring(0, valueA.Length < 10 ? 10 - valueA.Length : 1);
+                    //var valueB = t.ToString();
+                    //txtB += valueB + "          ".Substring(0, valueB.Length < 10 ? 10 - valueB.Length : 1);
                 }
+                //txtW += Environment.NewLine;
+                //txtA += Environment.NewLine;
+                //txtB += Environment.NewLine;
             }
+            //var file = $"d:\\w2_{DateTime.Now.ToString("yyyyMMdd_hhmmss")}.txt";
+            //var sb = new StringBuilder();
+            //sb.AppendLine("W");
+            //sb.AppendLine(txtW);
+            //sb.AppendLine("\nA");
+            //sb.AppendLine(txtA);
+            //sb.AppendLine("\nB");
+            //sb.AppendLine(txtB);
+            //File.WriteAllText(file, sb.ToString());
         }
 
 
@@ -491,6 +593,8 @@ namespace ShN
             {
                 parameters.Om = 2 * Math.PI * parameters.F[kf];
                 FormRLC(parameters.Resistors);
+                FormRLC(parameters.Inductors);
+                FormRLC(parameters.Capacitors);
                 //FormEi(parameters.Ei);
                 //FormEuW(parameters.EuW);
                 //FormOui(parameters.Oui);
