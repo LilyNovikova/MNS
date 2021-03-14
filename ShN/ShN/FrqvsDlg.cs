@@ -14,6 +14,7 @@ namespace ShN
         {
             InitializeComponent();
             ID_RED.Enabled = false;
+            //parameters = JsonConvert.DeserializeObject<Parameters>(File.ReadAllText("D:\\p_task-2.json"));
         }
 
         private void ID_EXIT_Click(object sender, EventArgs e)
@@ -65,19 +66,25 @@ namespace ShN
         {
             using (var openFileDialog = new OpenFileDialog())
             {
-                //openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
-                //openFileDialog.Filter = FileFilter;
-                //openFileDialog.FilterIndex = 2;
-                //openFileDialog.RestoreDirectory = true;
+                openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+                openFileDialog.Filter = FileFilter;
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
 
-                //if (openFileDialog.ShowDialog() == DialogResult.OK)
-                //{
-                    parameters = JsonConvert.DeserializeObject<Parameters>(File.ReadAllText("D:\\p_task-2.json"/*openFileDialog.FileName*/));
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    parameters = JsonConvert.DeserializeObject<Parameters>(File.ReadAllText(openFileDialog.FileName));
                     ID_RED.Enabled = true;
-                //}
+                }
             }
-            //ID_F_Click(sender, e);
-            //ID_IO_Click(sender, e);
+            if (parameters.F == null)
+            {
+                ID_F_Click(sender, e);
+            }
+            if (parameters.InOut == null)
+            {
+                ID_IO_Click(sender, e);
+            }
         }
 
         private void ID_IO_Click(object sender, EventArgs e)

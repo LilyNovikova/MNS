@@ -252,15 +252,15 @@ namespace ShN
             return sb;
         }
 
-        private void FormRLC(List<SimpleElement> elements1)
+        private void FormRLC(List<SimpleElement> elements)
         {
-            if (elements1 != null)
+            if (elements != null && elements.Any())
             {
-                var type = elements1.First().Type;
-                var elements = new List<SimpleElement>() { new SimpleElement() }.Concat(elements1).ToList();
-                var nd = elements1.Count;
-                var in_d = elements.Select(el => el.GetNodes()).ToArray();
-                var z_d = elements.Select(el => el.Z).ToArray();
+                var type = elements.First().Type;
+                var elementsWithEmptyFirstItem = new List<SimpleElement>() { new SimpleElement() }.Concat(elements).ToList();
+                var nd = elements.Count;
+                var in_d = elementsWithEmptyFirstItem.Select(el => el.GetNodes()).ToArray();
+                var z_d = elementsWithEmptyFirstItem.Select(el => el.Z).ToArray();
                 
 
                 if (type != ElementType.Inductor)
@@ -309,61 +309,7 @@ namespace ShN
                 }
             }
         }
-
-
-        private void FormRLC1(List<SimpleElement> elements)
-        {
-            if (elements != null)
-            {
-                var in_d = elements.Select(el => el.GetNodes()).ToArray();
-                var z_d = elements.Select(el => el.Z).ToArray();
-                var type = elements.First().Type;
-                if (type != ElementType.Inductor)
-                {
-                    for (var k = 0; k < elements.Count; k++)
-                    {
-                        for (var l = 0; l <= 1; l++)
-                        {
-                            var i = in_d[k][l];
-                            if (i == 0) continue;
-                            for (var m = 0; m <= 1; m++)
-                            {
-                                var j = in_d[k][m];
-                                if (j == 0) continue;
-                                var g = (1 - 2 * l) * (1 - 2 * m);
-                                switch (type)
-                                {
-                                    case ElementType.Resistor:
-                                        parameters.A[i, j] += g / z_d[k];
-                                        break;
-                                    case ElementType.Capacitor:
-                                        parameters.B[i, j] += g * z_d[k];
-                                        break;
-                                }
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    for (var k = 1; k <= elements.Count; k++)
-                    {
-                        var i = parameters.N + k;
-                        parameters.B[i, i] = z_d[k];
-                        for (var m = 0; m <= 1; m++)
-                        {
-                            var j = in_d[k][m];
-                            if (j == 0) continue;
-                            var g = 1 - 2 * m;
-                            parameters.A[i, j] -= g;
-                            parameters.A[j, i] += g;
-                        }
-                    }
-                    parameters.N += elements.Count;
-                }
-            }
-        }
-
+       
         //eu-w
         private void FormEuW(List<Source> elements)
         {
@@ -573,7 +519,6 @@ namespace ShN
             //sb.AppendLine(txtB);
             //File.WriteAllText(file, sb.ToString());
         }
-
 
         private void Calculate()
         {
