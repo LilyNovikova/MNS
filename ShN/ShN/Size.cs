@@ -36,9 +36,6 @@ namespace ShN
             Parameters.OperationalAmplifiers = int.Parse(operationalAmplifiers.Text);
             Parameters.IdTransformers = int.Parse(idTransformers.Text);
             Parameters.IdOperationalAmplifiers = int.Parse(idOperationalAmplifiers.Text);
-            Parameters.Resistors = new List<SimpleElement>();
-            Parameters.Inductors = new List<SimpleElement>();
-            Parameters.Capacitors = new List<SimpleElement>();
             this.Close();
         }
     }

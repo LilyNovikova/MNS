@@ -28,62 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblId = new System.Windows.Forms.Label();
+            this.label0 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.valueLbl = new System.Windows.Forms.Label();
             this.nextBtn = new System.Windows.Forms.Button();
-            this.m_nextr = new System.Windows.Forms.TextBox();
-            this.m_npr = new System.Windows.Forms.TextBox();
-            this.m_nmr = new System.Windows.Forms.TextBox();
-            this.m_zr = new System.Windows.Forms.TextBox();
+            this.elementId = new System.Windows.Forms.TextBox();
+            this.txt0 = new System.Windows.Forms.TextBox();
+            this.txt1 = new System.Windows.Forms.TextBox();
+            this.txt2 = new System.Windows.Forms.TextBox();
             this.elementTypeTxt = new System.Windows.Forms.TextBox();
+            this.lblType = new System.Windows.Forms.Label();
+            this.txt3 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txt5 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt6 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt7 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(35, 47);
+            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(18, 13);
+            this.lblId.TabIndex = 0;
+            this.lblId.Text = "ID";
+            // 
+            // label0
+            // 
+            this.label0.AutoSize = true;
+            this.label0.Location = new System.Drawing.Point(37, 76);
+            this.label0.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label0.Name = "label0";
+            this.label0.Size = new System.Drawing.Size(19, 13);
+            this.label0.TabIndex = 1;
+            this.label0.Text = "n+";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 47);
+            this.label1.Location = new System.Drawing.Point(39, 104);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ID";
+            this.label1.Size = new System.Drawing.Size(16, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "n-";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 76);
+            this.label2.Location = new System.Drawing.Point(39, 135);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Узел n+";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 104);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Узел n-";
-            // 
-            // valueLbl
-            // 
-            this.valueLbl.AutoSize = true;
-            this.valueLbl.Location = new System.Drawing.Point(39, 135);
-            this.valueLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.valueLbl.Name = "valueLbl";
-            this.valueLbl.Size = new System.Drawing.Size(116, 13);
-            this.valueLbl.TabIndex = 3;
-            this.valueLbl.Text = "Сопротивление (кОм)";
+            this.label2.Size = new System.Drawing.Size(116, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Сопротивление (кОм)";
             // 
             // nextBtn
             // 
-            this.nextBtn.Location = new System.Drawing.Point(116, 177);
+            this.nextBtn.Location = new System.Drawing.Point(118, 362);
             this.nextBtn.Margin = new System.Windows.Forms.Padding(2);
             this.nextBtn.Name = "nextBtn";
             this.nextBtn.Size = new System.Drawing.Size(78, 19);
@@ -92,42 +102,42 @@
             this.nextBtn.UseVisualStyleBackColor = true;
             this.nextBtn.Click += new System.EventHandler(this.IDC_NEXTR_BUTTON_Click);
             // 
-            // m_nextr
+            // elementId
             // 
-            this.m_nextr.Location = new System.Drawing.Point(171, 47);
-            this.m_nextr.Margin = new System.Windows.Forms.Padding(2);
-            this.m_nextr.Name = "m_nextr";
-            this.m_nextr.ReadOnly = true;
-            this.m_nextr.Size = new System.Drawing.Size(76, 20);
-            this.m_nextr.TabIndex = 5;
-            this.m_nextr.Text = "1";
+            this.elementId.Location = new System.Drawing.Point(171, 47);
+            this.elementId.Margin = new System.Windows.Forms.Padding(2);
+            this.elementId.Name = "elementId";
+            this.elementId.ReadOnly = true;
+            this.elementId.Size = new System.Drawing.Size(76, 20);
+            this.elementId.TabIndex = 5;
+            this.elementId.Text = "1";
             // 
-            // m_npr
+            // txt0
             // 
-            this.m_npr.Location = new System.Drawing.Point(171, 76);
-            this.m_npr.Margin = new System.Windows.Forms.Padding(2);
-            this.m_npr.Name = "m_npr";
-            this.m_npr.Size = new System.Drawing.Size(76, 20);
-            this.m_npr.TabIndex = 6;
-            this.m_npr.Text = "0";
+            this.txt0.Location = new System.Drawing.Point(171, 76);
+            this.txt0.Margin = new System.Windows.Forms.Padding(2);
+            this.txt0.Name = "txt0";
+            this.txt0.Size = new System.Drawing.Size(76, 20);
+            this.txt0.TabIndex = 6;
+            this.txt0.Text = "0";
             // 
-            // m_nmr
+            // txt1
             // 
-            this.m_nmr.Location = new System.Drawing.Point(171, 104);
-            this.m_nmr.Margin = new System.Windows.Forms.Padding(2);
-            this.m_nmr.Name = "m_nmr";
-            this.m_nmr.Size = new System.Drawing.Size(76, 20);
-            this.m_nmr.TabIndex = 7;
-            this.m_nmr.Text = "0";
+            this.txt1.Location = new System.Drawing.Point(171, 104);
+            this.txt1.Margin = new System.Windows.Forms.Padding(2);
+            this.txt1.Name = "txt1";
+            this.txt1.Size = new System.Drawing.Size(76, 20);
+            this.txt1.TabIndex = 7;
+            this.txt1.Text = "0";
             // 
-            // m_zr
+            // txt2
             // 
-            this.m_zr.Location = new System.Drawing.Point(171, 135);
-            this.m_zr.Margin = new System.Windows.Forms.Padding(2);
-            this.m_zr.Name = "m_zr";
-            this.m_zr.Size = new System.Drawing.Size(76, 20);
-            this.m_zr.TabIndex = 8;
-            this.m_zr.Text = "0";
+            this.txt2.Location = new System.Drawing.Point(171, 135);
+            this.txt2.Margin = new System.Windows.Forms.Padding(2);
+            this.txt2.Name = "txt2";
+            this.txt2.Size = new System.Drawing.Size(76, 20);
+            this.txt2.TabIndex = 8;
+            this.txt2.Text = "0";
             // 
             // elementTypeTxt
             // 
@@ -139,32 +149,137 @@
             this.elementTypeTxt.TabIndex = 10;
             this.elementTypeTxt.Text = "Resistor";
             // 
+            // lblType
+            // 
+            this.lblType.AutoSize = true;
+            this.lblType.Location = new System.Drawing.Point(35, 18);
+            this.lblType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(26, 13);
+            this.lblType.TabIndex = 9;
+            this.lblType.Text = "Тип";
+            // 
+            // txt3
+            // 
+            this.txt3.Location = new System.Drawing.Point(171, 168);
+            this.txt3.Margin = new System.Windows.Forms.Padding(2);
+            this.txt3.Name = "txt3";
+            this.txt3.Size = new System.Drawing.Size(76, 20);
+            this.txt3.TabIndex = 12;
+            this.txt3.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(39, 168);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(116, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Сопротивление (кОм)";
+            // 
+            // txt4
+            // 
+            this.txt4.Location = new System.Drawing.Point(171, 200);
+            this.txt4.Margin = new System.Windows.Forms.Padding(2);
+            this.txt4.Name = "txt4";
+            this.txt4.Size = new System.Drawing.Size(76, 20);
+            this.txt4.TabIndex = 14;
+            this.txt4.Text = "0";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 18);
+            this.label4.Location = new System.Drawing.Point(39, 200);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Тип";
+            this.label4.Size = new System.Drawing.Size(116, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Сопротивление (кОм)";
+            // 
+            // txt5
+            // 
+            this.txt5.Location = new System.Drawing.Point(171, 232);
+            this.txt5.Margin = new System.Windows.Forms.Padding(2);
+            this.txt5.Name = "txt5";
+            this.txt5.Size = new System.Drawing.Size(76, 20);
+            this.txt5.TabIndex = 16;
+            this.txt5.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(39, 232);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(116, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Сопротивление (кОм)";
+            // 
+            // txt6
+            // 
+            this.txt6.Location = new System.Drawing.Point(171, 264);
+            this.txt6.Margin = new System.Windows.Forms.Padding(2);
+            this.txt6.Name = "txt6";
+            this.txt6.Size = new System.Drawing.Size(76, 20);
+            this.txt6.TabIndex = 18;
+            this.txt6.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(39, 264);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(116, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Сопротивление (кОм)";
+            // 
+            // txt7
+            // 
+            this.txt7.Location = new System.Drawing.Point(171, 296);
+            this.txt7.Margin = new System.Windows.Forms.Padding(2);
+            this.txt7.Name = "txt7";
+            this.txt7.Size = new System.Drawing.Size(76, 20);
+            this.txt7.TabIndex = 20;
+            this.txt7.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(39, 296);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(116, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Сопротивление (кОм)";
             // 
             // ElementsParameters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 219);
-            this.Controls.Add(this.elementTypeTxt);
+            this.ClientSize = new System.Drawing.Size(329, 392);
+            this.Controls.Add(this.txt7);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txt6);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txt5);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txt4);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.m_zr);
-            this.Controls.Add(this.m_nmr);
-            this.Controls.Add(this.m_npr);
-            this.Controls.Add(this.m_nextr);
-            this.Controls.Add(this.nextBtn);
-            this.Controls.Add(this.valueLbl);
+            this.Controls.Add(this.txt3);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.elementTypeTxt);
+            this.Controls.Add(this.lblType);
+            this.Controls.Add(this.txt2);
+            this.Controls.Add(this.txt1);
+            this.Controls.Add(this.txt0);
+            this.Controls.Add(this.elementId);
+            this.Controls.Add(this.nextBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label0);
+            this.Controls.Add(this.lblId);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ElementsParameters";
             this.Text = "Описание элементов";
@@ -175,16 +290,26 @@
 
         #endregion
 
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.Label label0;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label valueLbl;
         private System.Windows.Forms.Button nextBtn;
-        private System.Windows.Forms.TextBox m_nextr;
-        private System.Windows.Forms.TextBox m_npr;
-        private System.Windows.Forms.TextBox m_nmr;
-        private System.Windows.Forms.TextBox m_zr;
+        private System.Windows.Forms.TextBox elementId;
+        private System.Windows.Forms.TextBox txt0;
+        private System.Windows.Forms.TextBox txt1;
+        private System.Windows.Forms.TextBox txt2;
         private System.Windows.Forms.TextBox elementTypeTxt;
+        private System.Windows.Forms.Label lblType;
+        private System.Windows.Forms.TextBox txt3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txt4;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txt5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txt7;
+        private System.Windows.Forms.Label label7;
     }
 }

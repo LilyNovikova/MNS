@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using ShN.DataModels;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -14,7 +15,7 @@ namespace ShN
         {
             InitializeComponent();
             ID_RED.Enabled = false;
-            //parameters = JsonConvert.DeserializeObject<Parameters>(File.ReadAllText("D:\\p_task-2.json"));
+            //parameters = JsonConvert.DeserializeObject<Parameters>(File.ReadAllText("D:\\input_task3.json"));
         }
 
         private void ID_EXIT_Click(object sender, EventArgs e)
@@ -38,12 +39,10 @@ namespace ShN
 
             if (parameters.NumResistors > 0)
             {
-                using (var resistors = new ElementsParameters(parameters))
+                using (var elementsParameters = new ElementsParameters(parameters))
                 {
-                    resistors.ShowDialog(this);
-                    parameters.Resistors = resistors.Resistors;
-                    parameters.Inductors = resistors.Inductors;
-                    parameters.Capacitors = resistors.Capacitors;
+                    elementsParameters.ShowDialog(this);
+                    parameters.Elements = elementsParameters.ElementsContainer;
                     paramsLbl.Text = parameters.ToString();
                 }
             }

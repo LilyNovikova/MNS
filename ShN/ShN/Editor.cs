@@ -47,18 +47,18 @@ namespace ShN
         private void IDC_OUT_Click(object sender, EventArgs e)
         {
             var elementType = (ElementType)m_redlst.SelectedItem;
-            var index = Int32.Parse(m_n.Text);
+            var index = int.Parse(m_n.Text);
             SimpleElement element = null;
             switch (elementType)
             {
                 case ElementType.Resistor:
-                    element = Parameters.Resistors.FirstOrDefault(el => el.Id == index);
+                    element = Parameters.Elements.Resistors?.FirstOrDefault(el => el.Id == index);
                     break;
                 case ElementType.Capacitor:
-                    element = Parameters.Capacitors.FirstOrDefault(el => el.Id == index);
+                    element = Parameters.Elements.Capacitors?.FirstOrDefault(el => el.Id == index);
                     break;
                 case ElementType.Inductor:
-                    element = Parameters.Inductors.FirstOrDefault(el => el.Id == index);
+                    element = Parameters.Elements.Inductors?.FirstOrDefault(el => el.Id == index);
                     break;
             }
 
@@ -78,11 +78,11 @@ namespace ShN
         private void IDC_IN_Click(object sender, EventArgs e)
         {
             var elementType = (ElementType)m_redlst.SelectedItem;
-            var index = Int32.Parse(m_n.Text);
+            var index = int.Parse(m_n.Text);
             var element = new SimpleElement()
             {
-                PlusNode = Int32.Parse(m_np1.Text),
-                MinusNode = Int32.Parse(m_nm1.Text),
+                PlusNode = int.Parse(m_np1.Text),
+                MinusNode = int.Parse(m_nm1.Text),
                 Z = double.Parse(m_z1.Text),
                 Id = index,
                 Type = elementType
@@ -90,13 +90,13 @@ namespace ShN
             switch (elementType)
             {
                 case ElementType.Resistor:
-                    Parameters.Resistors = Parameters.Resistors.Select(el => el.Id == index ? element : el).ToList();
+                    Parameters.Elements.Resistors = Parameters.Elements.Resistors?.Select(el => el.Id == index ? element : el).ToList();
                     break;
                 case ElementType.Capacitor:
-                    Parameters.Capacitors = Parameters.Capacitors.Select(el => el.Id == index ? element : el).ToList();
+                    Parameters.Elements.Capacitors = Parameters.Elements.Capacitors?.Select(el => el.Id == index ? element : el).ToList();
                     break;
                 case ElementType.Inductor:
-                    Parameters.Inductors = Parameters.Inductors.Select(el => el.Id == index ? element : el).ToList();
+                    Parameters.Elements.Inductors = Parameters.Elements.Inductors?.Select(el => el.Id == index ? element : el).ToList();
                     break;
             }
 

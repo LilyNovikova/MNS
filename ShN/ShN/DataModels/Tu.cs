@@ -12,6 +12,8 @@
         public double Csi { get; set; }
         public double S { get; set; }
 
+        public override ElementType Type => ElementType.Tu;
+
         public override int[] GetNodes()
         {
             return new int[] { NodeZ, NodeS, NodeI };

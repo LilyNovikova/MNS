@@ -7,7 +7,7 @@
         Resistor,
         Oui,
         Tu,
-        Eu,
+        EuW,
         Ei
     }
 }

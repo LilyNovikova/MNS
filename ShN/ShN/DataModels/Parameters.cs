@@ -5,10 +5,10 @@ namespace ShN.DataModels
 {
     public class Parameters : Model
     {
-        public const int M = 10;
-        public const int MR = 5;
-        public const int MC = 5;
-        public const int ML = 2;
+        public const int M = 100;
+        public const int MR = 20;
+        public const int MC = 20;
+        public const int ML = 20;
         public const int MF = 20;
 
         public int N { get; set; }
@@ -28,13 +28,7 @@ namespace ShN.DataModels
         public int UpTransistors { get; set; }//tu
         public int BpTransistors { get; set; }//tb
 
-        public List<SimpleElement> Resistors { get; set; }
-        public List<SimpleElement> Inductors { get; set; }
-        public List<SimpleElement> Capacitors { get; set; }
-        public List<Source> EuW { get; set; }
-        public List<Source> Ei { get; set; }
-        public List<Oui> Oui { get; set; }
-        public List<Tu> Tu { get; set; }
+        public ElementsContainer Elements { get; set; }
 
         public InOut InOut { get; set; }//lp,lm,kp,km
 
