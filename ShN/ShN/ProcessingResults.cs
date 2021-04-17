@@ -19,7 +19,7 @@ namespace ShN
             InitializeComponent();
             Calculate();
             resultsLbl.Text = CreateText();
-           // File.WriteAllText("d:\\out222.txt", CreateText());
+            // File.WriteAllText("d:\\out222.txt", CreateText());
         }
 
         private void St()
@@ -84,7 +84,7 @@ namespace ShN
 
         private void Gauss1(int kf)
         {
-           // LogW($"d:\\w3_{kf}-gauss_{DateTime.Now.ToString("yyyyMMdd_hhmmss")}.txt");
+            // LogW($"d:\\w3_{kf}-gauss_{DateTime.Now.ToString("yyyyMMdd_hhmmss")}.txt");
             var cn = new Complex(0, 0);
             for (var k = 1; k < parameters.N; k++)
             {
@@ -137,12 +137,12 @@ namespace ShN
                 parameters.W[0, i] = -t / parameters.W[i, i];//
             }
 
-           // LogW($"d:\\w3_{kf}-2gauss_{DateTime.Now.ToString("yyyyMMdd_hhmmss")}.txt");
+            // LogW($"d:\\w3_{kf}-2gauss_{DateTime.Now.ToString("yyyyMMdd_hhmmss")}.txt");
         }
 
         private void Gauss()
         {
-          //  LogW($"d:\\w3-gauss_{DateTime.Now.ToString("yyyyMMdd_hhmmss")}.txt");
+            //  LogW($"d:\\w3-gauss_{DateTime.Now.ToString("yyyyMMdd_hhmmss")}.txt");
             var cn = new Complex();
 
             // Прямой ход
@@ -473,68 +473,69 @@ namespace ShN
             parameters.N += 2 * parameters.IdOperationalAmplifiers;
         }
 
-        //tu
+        //tu       
         private void FormTu(List<Tu> elements)
         {
             var ay = new double[4, 4];
             var by = new double[4, 4];
-            var in_d = new[,] { { 2, 3, 1, 3 }, { 1, 2, 2, 3 } };
+            var in_d = new[,] { { 2, 3 }, { 1, 3 }, { 1, 2 }, { 2, 3 } };
             var in_ju = new[] { 1, 3, 2, 3 };
-            var z_tu = elements?.Select(el => el.GetZ()).ToArray();
-            var in_tu = elements?.Select(el => el.GetNodes()).ToArray();
-            for (var ktu = 0; ktu < parameters.UpTransistors; ktu++)
+            var elementsWithEmptyFirstItem = new List<Tu>() { new Tu() }.Concat(elements).ToList();
+            var z_tu = elementsWithEmptyFirstItem.Select(el => el.GetZ()).ToArray();
+            var in_tu = elementsWithEmptyFirstItem.Select(el => el.GetNodes()).ToArray();
+
+            for (var ktu = 1; ktu <= parameters.UpTransistors; ktu++)
             {
-                for (var i = 1; i < 4; i++)
+                for (var i = 1; i <= 3; i++)
                 {
-                    for (var j = 1; j < 4; j++)
+                    for (var j = 1; j <= 3; j++)
                     {
                         ay[i, j] = 0;
                         by[i, j] = 0;
                     }
-
-                    for (var k = 0; k <= 3; k++)
+                }
+                for (var k = 0; k <= 3; k++)
+                {
+                    for (var l = 0; l <= 1; l++)
                     {
-                        for (var l = 0; l < 2; l++)
+                        var i = in_d[k, l];
+                        for (var m = 0; m <= 1; m++)
                         {
-                            i = in_d[k, l];
-                            for (var m = 0; m < 2; m++)
+                            var j = in_d[k, m];
+                            var g = (1 - 2 * l) * (1 - 2 * m);
+                            if (k == 0)
                             {
-                                var j = in_d[k, m];
-                                var g = (1 - 2 * l) * (1 - 2 * m);
-                                if (k == 0)
-                                {
-                                    ay[i, j] += g / z_tu[ktu][k];
-                                }
-                                else
-                                {
-                                    by[i, j] += g * z_tu[ktu][k];
-                                }
+                                ay[i, j] += g / z_tu[ktu][k];
                             }
-                        }
-                        for (var l = 2; l < 4; l++)
-                        {
-                            i = in_ju[l];
-                            for (var m = 0; m < 2; m++)
+                            else
                             {
-                                var j = in_ju[m];
-                                var g = (5 - 2 * l) * (1 - 2 * m);
-                                ay[i, j] += g * z_tu[ktu][3];
+                                by[i, j] += g * z_tu[ktu][k];
                             }
                         }
                     }
                 }
-                for (var i = 1; i < 4; i++)
+                for (var l = 2; l <= 3; l++)
                 {
-                    var ii = in_tu[ktu][i - 1];
-                    if (ii == 0) continue;
-                    for (var j = 1; j < 4; j++)
+                    var i = in_ju[l];
+                    for (var m = 0; m <= 1; m++)
                     {
-                        var jj = in_tu[ktu][j - 1];
+                        var j = in_ju[m];
+                        var g = (5 - 2 * l) * (1 - 2 * m);
+                        ay[i, j] += g * z_tu[ktu][4];
+                    }
+                }
+
+                for (var i = 1; i <= 3; i++)
+                {
+                    var ii = in_tu[ktu][i];
+                    if (ii == 0) continue;
+                    for (var j = 1; j <= 3; j++)
+                    {
+                        var jj = in_tu[ktu][j];
                         if (jj == 0) continue;
                         parameters.A[ii, jj] += ay[i, j];
                         parameters.B[ii, jj] += by[i, j];
                     }
-
                 }
             }
         }
@@ -565,7 +566,7 @@ namespace ShN
                     var t = parameters.B[i, j];
                     if (t != 0) t *= parameters.Om;
                     var a = parameters.A[i, j];
-                    parameters.W[i, j] = new Complex(a, t);                    
+                    parameters.W[i, j] = new Complex(a, t);
                 }
             }
         }
@@ -575,31 +576,33 @@ namespace ShN
             parameters.A = new double[Parameters.M + 1, Parameters.M + 1];
             parameters.B = new double[Parameters.M + 1, Parameters.M + 1];
             parameters.W = new Complex[Parameters.M + 1, Parameters.M + 1];
-                       
+
             for (var kf = 0; kf < parameters.F.Count; kf++)
             {
                 SetAllToZero();
                 parameters.N = parameters.NumNodes;
                 parameters.Om = 2 * Math.PI * parameters.F[kf];
                 parameters.Elements.Resistors.Do(FormRLC);
-              //  FormW();
-              //  LogW($"d:\\r_{kf}.txt");
+                //  FormW();
+                //  LogW($"d:\\r_{kf}.txt");
                 parameters.Elements.Inductors.Do(FormRLC);
-             //   FormW();
-               // LogW($"d:\\l_{kf}.txt");
+                //   FormW();
+                // LogW($"d:\\l_{kf}.txt");
                 parameters.Elements.Capacitors.Do(FormRLC);
-             //   FormW();
-              //  LogW($"d:\\c_{kf}.txt");
+                //   FormW();
+                //  LogW($"d:\\c_{kf}.txt");
                 parameters.Elements.Ei.Do(FormEi);
-             //   FormW();
-             //   LogW($"d:\\ei_{kf}.txt");
+                //   FormW();
+                //   LogW($"d:\\ei_{kf}.txt");
                 parameters.Elements.EuW.Do(FormEuW);
-              //  FormW();
-              //  LogW($"d:\\eu_{kf}.txt");
+                //  FormW();
+                //  LogW($"d:\\eu_{kf}.txt");
                 parameters.Elements.Oui.Do(FormOui);
-             //   FormW();
-               // LogW($"d:\\oui_{kf}.txt");
+                //   FormW();
+                // LogW($"d:\\oui_{kf}.txt");
                 parameters.Elements.Tu.Do(FormTu);
+                //   FormW();
+                // LogW($"d:\\tu_{kf}.txt");
                 FormW();
                 FormS();
 

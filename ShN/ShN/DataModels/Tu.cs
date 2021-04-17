@@ -16,7 +16,7 @@
 
         public override int[] GetNodes()
         {
-            return new int[] { NodeZ, NodeS, NodeI };
+            return new int[] { 0, NodeZ, NodeS, NodeI };
         }
 
         public double[] GetZ()
